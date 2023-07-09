@@ -16,37 +16,48 @@
 "3 if the round was a draw"
 "6 if you won"
 
+score = 0
 with open('input.txt','r') as input_file:
     for line in input_file:
-        line.split()
-        opponentMove = line[0]
-        playerMove = line[2]
-        if opponentMove == "A":
-            opponentMoveTranslated = "Rock"
-        if opponentMove == "B":
-            opponentMoveTranslated = "Paper"
-        if opponentMove == "C":
-            opponentMoveTranslated = "Scisors"
-        
-        if playerMove == "X":
-            playerMoveTranslated = "Rock"
-        if playerMove == "Y":
-            playerMoveTranslated = "Paper"
-        if playerMove == "Z":
-            playerMoveTranslated = "Scisors"
+#       line.split()
+        if line == 'A X\n':
+          roundScore = 4
+          score = score + roundScore
+        if line == 'A Y\n':
+          roundScore = 8
+          score = score + roundScore
+        if line == 'A Z\n':
+          roundScore =3 
+          score = score + roundScore
+        if line == 'B X\n':
+          roundScore = 1
+          score = score + roundScore
+        if line == 'B Y\n':
+          roundScore = 5
+          score = score + roundScore
+        if line == 'B Z\n':
+          roundScore = 9
+          score = score + roundScore
+        if line == 'C X\n':
+          roundScore = 7
+          score = score + roundScore
+        if line == 'C Y\n':
+          roundScore = 2 
+          score = score + roundScore
+        if line == 'C Z\n':
+          roundScore = 6
+          score = score + roundScore
+
+print(score)
 """        
 A X 1+3=4    Rock Rock = Draw
-A Y 1+6=7    Rock Paper = Win
-A Z 1+0=1    Rock Scisors = Loss 
-B X 2+0=2    Paper Rock = Loss
+A Y 2+6=8    Rock Paper = Win
+A Z 3+0=3    Rock Scisors = Loss 
+B X 1+0=1    Paper Rock = Loss
 B Y 2+3=5    Paper Paper = Draw
-B Z 2+6=8    Paper Scisors = Win
-C X 3+6=9    Scisors Rock = Win
-C Y 3+0=3    Scisors Paper = Loss
+B Z 3+6=9    Paper Scisors = Win
+C X 1+6=7    Scisors Rock = Win
+C Y 2+0=2    Scisors Paper = Loss
 C Z 3+3=6    Scisors Scisors = Draw
 """         
 
-        if playerMoveTranslated == opponentMoveTranslated:
-            result = "Draw"
-        if playerMoveTranslated 
-        print(f"opponentMoveTranslated: {opponentMoveTranslated} playerMoveTranslated: {playerMoveTranslated}")
