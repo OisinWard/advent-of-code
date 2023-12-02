@@ -1,17 +1,17 @@
 import re
 
-sum = 0
+sum_part_1 = 0
 
 # Code for part 1 
 with open('input.txt','r') as input_file:
     for line in input_file:
        data = (re.findall(r'\d', line))
-       sum = int((str(data[0])+str(data[-1]))) + sum
+       sum_part_1 = int((str(data[0])+str(data[-1]))) + sum_part_1
        
-    print(sum) 
+    print(sum_part_1) 
 
 # Code for part 2
-sum = 0
+sum_part_2 = 0
 numbers = [
     'one', 
     'two',
@@ -88,5 +88,5 @@ with open('input.txt','r') as input_file:
                 last_number = '8'
            case 'nine':
                 last_number = '9'
-       sum = int (first_number + last_number) + sum
-print(sum)
+       sum_part_2 = int (first_number + last_number) + sum_part_2
+print(sum_part_2)
