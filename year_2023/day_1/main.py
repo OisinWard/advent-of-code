@@ -2,6 +2,7 @@ import re
 
 sum = 0
 
+# Code for part 1 
 with open('input.txt','r') as input_file:
     for line in input_file:
        data = (re.findall(r'\d', line))
@@ -9,6 +10,7 @@ with open('input.txt','r') as input_file:
        
     print(sum) 
 
+# Code for part 2
 sum = 0
 numbers = [
     'one', 
