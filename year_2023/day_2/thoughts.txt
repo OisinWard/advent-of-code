@@ -1,0 +1,12 @@
+Need to parse the string. The game can  be dropped but the game id is essential to keep.
+Next There are 3 draws.
+Only one draw needs to fail to fail the whole test for the game. 
+As well only one colour needs to fail. 
+So we could think of the 3 draws as one and find any place where a colour fails.
+I can use regex to check for a sting like greater than 12 red cubes etc and so on for each colour.
+
+get file input
+  for each line in file
+     check for "(1[3-9] red|1[4-9] green|1[5-9] blue|[2-9][0-9] red|[2-9][0-9] green|[2-9][0-9] blue)"
+     if regex string matches then continue
+     else add the game id to sum
