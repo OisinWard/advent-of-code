@@ -1,0 +1,57 @@
+This is tricky so...
+For every line I read in I can check if there is a special character next to it. A special character is any character that is not a (.) or a number.
+I need to track every number that matches that description I also need to remove that instance of the number from further consideration to avoid double counting when checking adjacents. Then I need to make sure I'm removing only the matching case and not just all instances of the number on that line.
+Next I need to compare the line I'm on to the line below. I'd need to take note of the position of all non-matching numbers in the current line. Then I compare those positions to the positions of any special characters on the second line.
+
+So consider the lines
+
+.467.1.4*.
+...*......
+
+First we check for any immediate special characters adjacent to the numbers. 4 is so we need to rule it out but we need to consider position.
+
+.467.1.4*.
+0123456789
+...*......
+0123456789
+
+Below each line I've marked the position. Since 4 has matched already we need to remove it from consideration.
+.467.1.*.
+012345689
+...*......
+0123456789
+
+The number 467 takes up the position 123 the min position is 1 and the max 3 so the potential positions for a special character on the line below are 01234 or min 0 and max 4.
+
+So now 467 should be removed from consideration so the line would look like:
+..1.*.
+045689
+
+Why bother continue to track the state of the line? Well there could be a line above one that has a special character in it we're only checking below.
+
+So consider if the initial set of lines was:
+
+...*.@....
+.467.1.4*.
+...*......
+
+What we would do is reverse the lines order and repeat the algorithm.
+
+...*......   <- We can discard this line since it has been considered.
+.467.1.4*.
+...*.@....
+
+Lets bring back our realm of consideration so we know what numbers to ignore.
+..1.*.
+045689
+
+Next consider the position of 1 it is at position 5 so the potential places for an adjacent special character are 456.
+...*.@....
+0123456789
+
+.@.
+456
+
+There's a special character in 456 so it is added to the list of matches. 
+
+So that's my algorithm how do I write it?
